@@ -7,13 +7,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: false,
   pages:true,
-  modules: [ '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/ui', '@nuxtjs/tailwindcss'],
-
-
+  modules: [ '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/ui', '@nuxtjs/tailwindcss','@nuxt/test-utils/module'],
   i18n: {
     vueI18n: './i18n.config.ts',
   },
-
   css: [
     '~/assets/scss/_general.scss',
     '~/assets/scss/_typography.scss',
@@ -25,20 +22,7 @@ export default defineNuxtConfig({
     exposeConfig: { level: 1 },
     viewer: true,
   },
-
-  vite: {
-    test: {
-      globals: true,
-      environment: 'jsdom',
-      setupFiles: '~/tests/setup.ts', 
-      coverage: {
-        reporter: ['text', 'json', 'html']
-      }
-    }
-  },
-
   plugins:['~/plugins/axios.ts'],
-
   app: {
     head: {
       title: "Services | acb.studio ",

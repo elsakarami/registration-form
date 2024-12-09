@@ -3,7 +3,10 @@ import { useAxios } from "./useFetchData";
 import { ref, computed } from "vue";
 
 const toast = useToast()
-const { error, loading, fetchData } = useAxios<any>(); // Specify the type based on your API response structure
+
+
+
+const { error, loading, fetchData } = useAxios<any>(); 
 
 export class FormValidator {
   public form: FormFields;
@@ -32,41 +35,28 @@ export class FormValidator {
           await fetchData("https://api.yourdomain.com/register", "POST", this.form);
         } catch (err) {
             toast.add({
-                id: 'update_downloaded',
-                title: 'Update downloaded.',
-                description: 'It will be installed on restart. Restart now?',
-                icon: 'i-octicon-desktop-download-24',
-                timeout: 0,
-                actions: [{
-                  label: 'Restart',
-                  click: () => {
-            
-                  }
-                }]
-              })
+                id: 'validation_error',
+                title: 'Error Occurred',
+                description: 'There was a problem with your submission. Validation errors ',
+                icon: 'i-octicon-alert-24', 
+                timeout: 0
+            });
             
         }
       };
       return { error, loading, register };
     } else {
         toast.add({
-            id: 'update_downloadede',
-            title: 'Update downloaded.',
-            description: 'It will be installed on restart. Restart now?',
-            icon: 'i-octicon-desktop-download-24',
-            timeout: 0,
-            actions: [{
-              label: 'Restart',
-              click: () => {
-        
-              }
-            }]
-          })
-        
-      console.log("Validation errors:", {
-        emailError: this.emailError.value,
-        passwordError: this.passwordError.value,
-        termsError: this.termsError.value,
+            id: 'validation_error',
+            title: 'Error Occurred',
+            description: 'There was a problem with your submission. Validation errors ',
+            icon: 'i-octicon-alert-24', 
+            timeout: 0
+        });
+        console.log("Validation errors:", {
+            emailError: this.emailError.value,
+            passwordError: this.passwordError.value,
+            termsError: this.termsError.value,
       });
     }
   }

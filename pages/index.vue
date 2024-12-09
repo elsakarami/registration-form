@@ -10,8 +10,6 @@
   };
   definePageMeta({
     authRequired: false,
-    layout: "authentication",
-    name:'register'
+    layout: "authentication"
   });
   </script>
-  

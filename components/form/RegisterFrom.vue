@@ -124,8 +124,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from "vue";
-import { FormValidator } from "@/composables/useFormValidator";
-import type { FormFields } from "@/types";
+import { FormValidator } from "../../composables/useFormValidator";
+import type { FormFields } from "../../types";
 
 const form = ref<FormFields>({
   email: "",
