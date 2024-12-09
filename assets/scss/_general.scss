@@ -1,0 +1,54 @@
+html,body {
+  @apply font-poppinsRegular;
+}
+
+.user-register {
+  &__container {
+    @apply container;
+  }
+
+  &__form,.form {
+    @apply space-y-6;
+
+    &__field {
+      @apply flex flex-col;
+
+      &__input {
+        @apply mt-1 px-4 block w-full h-[42px] rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm;
+      }
+
+      &__err {
+        @apply mt-2 text-sm text-red-600;
+      }
+
+      &__visibility-btn {
+        @apply absolute inset-y-0 right-0 px-4 flex items-center text-sm text-gray-500;
+      }
+    }
+
+    &__progress,.progress {
+      @apply items-baseline text-start;
+
+      &__error{
+        @apply flex flex-row py-1 gap-[10px] text-[14px];
+      }
+    }
+
+    &__term {
+      @apply flex flex-col justify-center  gap-2 mt-4;
+
+ 
+      &__label {
+        @apply  ml-2 block text-[14px];
+      }
+
+      &__error {
+        @apply  text-sm text-red-600;
+      }
+    }
+
+    &__action {
+      @apply  w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50;
+    }
+  }
+}

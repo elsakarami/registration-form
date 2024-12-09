@@ -1,0 +1,24 @@
+{
+    "main_title": "acb.studio",
+    "title": "Hi",
+    "email":"Email",
+    "password":"Password",
+    "terms":"Accept Terms of Service",
+    "password_level":{
+        "weak":"Weak",
+        "medium":"Medium",
+        "strong":"Strong"
+    },
+    "password_errors":{
+        "minLength":"At least 8 characters",
+        "containsLowercase":"Contains lowercase letter",
+        "containsNumber":"Contains number",
+        "containsSpecialChar":"Contains special character",
+        "containsUppercase":"Contains uppercase letter"
+    },
+    "actions":{
+        "register":"Register",
+        "login":"Login"
+    }
+
+}
