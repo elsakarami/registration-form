@@ -3,10 +3,16 @@ import { useAxios } from "./useFetchData";
 import { ref, computed } from "vue";
 
 const toast = useToast()
-
-
-
 const { error, loading, fetchData } = useAxios<any>(); 
+
+function showNotification(title: string,description: string) {
+    toast.add({
+        id: 'notifications',
+        title,
+        description,
+        timeout: 0
+    });
+}
 
 export class FormValidator {
   public form: FormFields;
@@ -32,32 +38,16 @@ export class FormValidator {
     if (this.isFormValid.value) {
       const register = async () => {
         try {
-          await fetchData("https://api.yourdomain.com/register", "POST", this.form);
+          await fetchData("http://192.168.2.107:5000/register", "POST", this.form);
+          showNotification('Success','You are registered successfully')
+
         } catch (err) {
-            toast.add({
-                id: 'validation_error',
-                title: 'Error Occurred',
-                description: 'There was a problem with your submission. Validation errors ',
-                icon: 'i-octicon-alert-24', 
-                timeout: 0
-            });
-            
+          showNotification('Error Occurred','There was a problem with your submission. Validation errors')
         }
       };
       return { error, loading, register };
     } else {
-        toast.add({
-            id: 'validation_error',
-            title: 'Error Occurred',
-            description: 'There was a problem with your submission. Validation errors ',
-            icon: 'i-octicon-alert-24', 
-            timeout: 0
-        });
-        console.log("Validation errors:", {
-            emailError: this.emailError.value,
-            passwordError: this.passwordError.value,
-            termsError: this.termsError.value,
-      });
+        showNotification('Error Occurred', `There was a problem with your submission.`)
     }
   }
 
